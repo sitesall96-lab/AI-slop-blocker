@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SlopBlocker Zero</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__logo">
+      <svg class="header__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 2L3 7V12C3 16.55 6.84 20.74 12 22C17.16 20.74 21 16.55 21 12V7L12 2Z" stroke="#00F5FF" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M9 12L11 14L15 10" stroke="#00F5FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="header__title">SlopBlocker <span class="header__zero">Zero</span></span>
+    </div>
+    <span class="header__version">v1.0.0</span>
+  </header>
+
+  <main class="controls">
+
+    <!-- GOOGLE -->
+    <section class="platform-group" id="group-google">
+      <div class="platform-group__header">
+        <svg class="platform-group__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        <span class="platform-group__name">Google</span>
+      </div>
+
+      <div class="toggle-row">
+        <label class="toggle-row__label" for="toggle-google-ai">
+          Hide AI Overviews
+          <span class="toggle-row__sub">Removes the AI answer block from search results</span>
+        </label>
+        <button
+          class="toggle"
+          id="toggle-google-ai"
+          role="switch"
+          aria-checked="true"
+          data-pref="google_hide_ai_overview"
+          title="Toggle AI Overview blocking"
+        >
+          <span class="toggle__track"><span class="toggle__thumb"></span></span>
+          <span class="sr-only">Hide AI Overviews</span>
+        </button>
+      </div>
+    </section>
+
+    <div class="divider" role="separator"></div>
+
+    <!-- YOUTUBE -->
+    <section class="platform-group" id="group-youtube">
+      <div class="platform-group__header">
+        <svg class="platform-group__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FF0000"/>
+        </svg>
+        <span class="platform-group__name">YouTube</span>
+      </div>
+
+      <div class="toggle-row">
+        <label class="toggle-row__label" for="toggle-yt-slop">
+          Dim Slop Thumbnails
+          <span class="toggle-row__sub">Fades AI-generated & low-quality video thumbnails</span>
+        </label>
+        <button
+          class="toggle"
+          id="toggle-yt-slop"
+          role="switch"
+          aria-checked="true"
+          data-pref="youtube_dim_slop"
+          title="Toggle slop thumbnail dimming"
+        >
+          <span class="toggle__track"><span class="toggle__thumb"></span></span>
+          <span class="sr-only">Dim Slop Thumbnails</span>
+        </button>
+      </div>
+
+      <div class="toggle-row">
+        <label class="toggle-row__label" for="toggle-yt-audio">
+          Force Original Audio
+          <span class="toggle-row__sub">Auto-selects original language track on videos</span>
+        </label>
+        <button
+          class="toggle"
+          id="toggle-yt-audio"
+          role="switch"
+          aria-checked="true"
+          data-pref="youtube_force_original"
+          title="Toggle original audio forcing"
+        >
+          <span class="toggle__track"><span class="toggle__thumb"></span></span>
+          <span class="sr-only">Force Original Audio</span>
+        </button>
+      </div>
+    </section>
+
+    <div class="divider" role="separator"></div>
+
+    <!-- AMAZON -->
+    <section class="platform-group" id="group-amazon">
+      <div class="platform-group__header">
+        <svg class="platform-group__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 0 1-10.951-.577 16.793 16.793 0 0 1-5.457-3.533c-.176-.183-.176-.363-.079-.56zm13.327-11.76l-.035.108-.036.076L8.162 17.9c-.282.608-.593.804-1.018.804H5.76c-.435 0-.685-.23-.686-.706V.722c0-.282.088-.487.28-.615.182-.126.42-.127.71-.002L8.45 1.38c.337.17.425.29.425.504V12.02l4.497-5.773z" fill="#FF9900"/>
+        </svg>
+        <span class="platform-group__name">Amazon</span>
+      </div>
+
+      <div class="toggle-row">
+        <label class="toggle-row__label" for="toggle-amz-reviews">
+          Promote 1-Star Reviews
+          <span class="toggle-row__sub">Moves critical reviews to the top of the list</span>
+        </label>
+        <button
+          class="toggle"
+          id="toggle-amz-reviews"
+          role="switch"
+          aria-checked="true"
+          data-pref="amazon_promote_1star"
+          title="Toggle 1-star review promotion"
+        >
+          <span class="toggle__track"><span class="toggle__thumb"></span></span>
+          <span class="sr-only">Promote 1-Star Reviews</span>
+        </button>
+      </div>
+
+      <div class="toggle-row">
+        <label class="toggle-row__label" for="toggle-amz-ai">
+          Hide AI Summaries
+          <span class="toggle-row__sub">Removes AI-generated review summary blocks</span>
+        </label>
+        <button
+          class="toggle"
+          id="toggle-amz-ai"
+          role="switch"
+          aria-checked="true"
+          data-pref="amazon_hide_ai_summary"
+          title="Toggle AI summary hiding"
+        >
+          <span class="toggle__track"><span class="toggle__thumb"></span></span>
+          <span class="sr-only">Hide AI Summaries</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span class="footer__privacy">
+      <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="10" height="10">
+        <circle cx="6" cy="6" r="5" stroke="#00F5FF" stroke-width="1"/>
+        <path d="M6 5V8M6 3.5V4" stroke="#00F5FF" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      Zero tracking &middot; Zero API calls &middot; 100% local
+    </span>
+    <a
+      class="footer__credit"
+      href="https://youtube.com/@oriontechyt"
+      target="_blank"
+      rel="noopener noreferrer"
+    >@oriontechyt</a>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

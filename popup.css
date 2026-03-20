@@ -1,0 +1,314 @@
+/* SlopBlocker Zero — popup.css
+   Brand: Orion's Tech (@oriontechyt)
+   Black background · Electric Cyan accent · Zero bloat
+   -------------------------------------------------------- */
+
+/* ── Reset & Base ─────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:           #000000;
+  --surface:      #0d0d0d;
+  --surface-2:    #161616;
+  --border:       #222222;
+  --cyan:         #00F5FF;
+  --cyan-dim:     #00c8d4;
+  --cyan-glow:    rgba(0, 245, 255, 0.15);
+  --text:         #f0f0f0;
+  --text-sub:     #666666;
+  --toggle-off:   #2a2a2a;
+  --toggle-on:    #00F5FF;
+  --radius:       6px;
+  --font:         'Courier New', 'Lucida Console', monospace;
+  --font-ui:      -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html {
+  font-size: 13px;
+}
+
+body {
+  width: 320px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* ── Header ───────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: relative;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0.4;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.header__title {
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.header__zero {
+  color: var(--cyan);
+}
+
+.header__version {
+  font-family: var(--font);
+  font-size: 10px;
+  color: var(--text-sub);
+  letter-spacing: 0.06em;
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* ── Controls / main area ─────────────────────────────── */
+
+.controls {
+  padding: 8px 0;
+}
+
+/* ── Platform group ───────────────────────────────────── */
+
+.platform-group {
+  padding: 10px 16px;
+}
+
+.platform-group__header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 10px;
+}
+
+.platform-group__icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.platform-group__name {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-sub);
+}
+
+/* ── Toggle row ───────────────────────────────────────── */
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid #111;
+  cursor: pointer;
+}
+
+.toggle-row:last-child {
+  border-bottom: none;
+}
+
+.toggle-row__label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  flex: 1;
+}
+
+.toggle-row__sub {
+  font-size: 10.5px;
+  font-weight: 400;
+  color: var(--text-sub);
+  line-height: 1.3;
+}
+
+/* ── Toggle switch ────────────────────────────────────── */
+
+.toggle {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.toggle__track {
+  display: block;
+  width: 36px;
+  height: 20px;
+  background: var(--toggle-off);
+  border-radius: 10px;
+  position: relative;
+  transition: background 0.2s ease;
+  border: 1px solid #333;
+}
+
+.toggle__thumb {
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: #555;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.toggle[aria-checked="true"] .toggle__track {
+  background: var(--toggle-on);
+  border-color: var(--cyan-dim);
+}
+
+.toggle[aria-checked="true"] .toggle__thumb {
+  transform: translateX(16px);
+  background: #000;
+  box-shadow: 0 0 6px rgba(0, 245, 255, 0.6);
+}
+
+.toggle:focus-visible .toggle__track {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+/* Hover states */
+.toggle-row:hover .toggle-row__label {
+  color: #fff;
+}
+
+.toggle-row:hover .toggle__track {
+  border-color: #444;
+}
+
+.toggle[aria-checked="true"]:hover .toggle__track {
+  background: var(--cyan-dim);
+}
+
+/* ── Divider ──────────────────────────────────────────── */
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 16px;
+}
+
+/* ── Footer ───────────────────────────────────────────── */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px 10px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  gap: 8px;
+}
+
+.footer__privacy {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9.5px;
+  color: var(--text-sub);
+  letter-spacing: 0.02em;
+}
+
+.footer__credit {
+  font-family: var(--font);
+  font-size: 10px;
+  color: var(--cyan);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+
+.footer__credit:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* ── Status toast ─────────────────────────────────────── */
+
+.toast {
+  position: fixed;
+  bottom: 44px;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--surface-2);
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  font-family: var(--font);
+  font-size: 10px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  letter-spacing: 0.05em;
+}
+
+.toast.toast--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
