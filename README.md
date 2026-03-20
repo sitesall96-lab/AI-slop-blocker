@@ -5,8 +5,6 @@
 [![Zero API Calls](https://img.shields.io/badge/API%20Calls-Zero-00F5FF?style=flat-square)](https://github.com/orionstechyt/slopblocker-zero)
 [![Local Only](https://img.shields.io/badge/Runs-100%25%20Local-00F5FF?style=flat-square)](https://github.com/orionstechyt/slopblocker-zero)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
-[![Built With Claude](https://img.shields.io/badge/Built%20With-Claude-blueviolet?style=flat-square)](https://claude.ai)
-
 > **Cut the noise. See the signal.**
 > A Manifest V3 browser extension that strips AI Overviews from Google, dims slop thumbnails on YouTube, and promotes honest 1-star reviews on Amazon — with zero tracking, zero API calls, and zero compromise.
 
